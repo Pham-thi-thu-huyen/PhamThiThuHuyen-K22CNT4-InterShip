@@ -1,0 +1,124 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Toàn trang */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fbe8f4, #fdf6f0);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #ffb6c1;
+    text-align: center;
+    padding: 30px 0;
+    color: white;
+    box-shadow: 0 2px 10px rgba(255, 182, 193, 0.6);
+}
+
+header h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+/* Phần nội dung chính */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 50px auto;
+    max-width: 1000px;
+}
+
+/* Thông tin cá nhân */
+.info {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.info img {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #ffb6c1;
+}
+
+.info h2 {
+    color: #ff6f91;
+    margin-bottom: 10px;
+}
+
+/* Sở thích */
+.hobby {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.hobby h2 {
+    text-align: center;
+    color: #ff6f91;
+    margin-bottom: 15px;
+}
+
+.hobby ul {
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+.hobby li {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: #ffb6c1;
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    box-shadow: 0 -2px 10px rgba(255, 182, 193, 0.5);
+}
+
+footer h2 {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffe5ec;
+}
