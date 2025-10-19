@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+nav{
+    background-color: #05a742;
+    color: #fff;
+}
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display:flex;
+    flex-wrap: wrap;
+}
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+a:hover{
+    color: #fff600;
+}
