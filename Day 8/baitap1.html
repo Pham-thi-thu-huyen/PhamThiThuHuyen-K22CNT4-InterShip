@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký khách hàng</title>
+</head>
+<body>
+    <div id="zone1">
+        <h1>Kiểm tra thông tin đăng ký</h1>
+        <hr/>
+        <form>
+            <div>
+                <label for="u_name">Họ tên:</label>
+                <input type="text" id="u_name"
+                       onchange="fn_change_uname();" 
+                       onkeyup="fn_change_uname();">
+                <span id="err_u_name">(*)</span>
+            </div>
+            <div>
+                <label for="u_phone">Số điện thoại:</label>
+                <input type="text" id="u_phone"
+                       onchange="fn_change_phone();" 
+                       onkeyup="fn_change_phone();">
+                <span id="err_u_phone">(*)</span>
+            </div>
+            <div>
+                <label for="u_pass">Mật khẩu:</label>
+                <input type="password" id="u_pass"
+                       onchange="fn_change_pass();" 
+                       onkeyup="fn_change_pass();">
+                <span id="err_u_pass">(*)</span>
+            </div>
+
+            <input type="submit" value="Đăng ký" onclick="return fn_submit();">
+        </form>
+    </div>
+
+    <script>
+        //  Kiểm tra họ tên
+        const fn_change_uname = () => {
+            let uname = document.getElementById('u_name').value.trim();
+            let err = document.getElementById('err_u_name');
+            if (uname === "") {
+                err.innerText = "Họ tên không được để trống";
+                err.style.color = "red";
+                return false;
+            } else {
+                err.innerHTML = "<span style='color:green'>OK</span>";
+                return true;
+            }
+        }
+
+        //Kiểm tra số điện thoại 
+        const fn_change_phone = () => {
+            let phone = document.getElementById('u_phone').value.trim();
+            let err = document.getElementById('err_u_phone');
+            let reg = /^[0-9]{10}$/;
+            if (phone === "") {
+                err.innerText = "Bạn chưa nhập SĐT";
+                err.style.color = "red";
+                return false;
+            } else if (!reg.test(phone)) {
+                err.innerText = "SĐT phải có 10 chữ số";
+                err.style.color = "red";
+                return false;
+            } else {
+                err.innerHTML = "<span style='color:green'>OK</span>";
+                return true;
+            }
+        }
+
+        // Kiểm tra mật khẩu 
+        const fn_change_pass = () => {
+            let pass = document.getElementById('u_pass').value.trim();
+            let err = document.getElementById('err_u_pass');
+            if (pass === "") {
+                err.innerText = "Bạn chưa nhập mật khẩu";
+                err.style.color = "red";
+                return false;
+            } else if (pass.length < 6) {
+                err.innerText = "Mật khẩu ≥ 6 ký tự";
+                err.style.color = "red";
+                return false;
+            } else {
+                err.innerHTML = "<span style='color:green'>OK</span>";
+                return true;
+            }
+        }
+
+        //nút đăng kí 
+        const fn_submit = () => {
+            if (fn_change_uname() && fn_change_phone() && fn_change_pass()) {
+                alert("Đăng ký thành công");
+                return true;
+            } else {
+                alert("Vui lòng kiểm tra lại thông tin");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

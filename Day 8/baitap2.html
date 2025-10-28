@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm mới sản phẩm </title>
+</head>
+<body>
+    <div id="zone1">
+        <h1>Thêm mới sản phẩm </h1>
+        <hr/>
+        <form>
+          
+            <div>
+                <label for="p_name">Tên sản phẩm:</label>
+                <input type="text" id="p_name"
+                       onchange="fn_change_name();"
+                       onkeyup="fn_change_name();">
+                <span id="err_p_name">(*)</span>
+            </div>
+
+       
+            <div>
+                <label for="p_price">Giá sản phẩm (VNĐ):</label>
+                <input type="text" id="p_price"
+                       onchange="fn_change_price();"
+                       onkeyup="fn_change_price();">
+                <span id="err_p_price">(*)</span>
+            </div>
+
+       
+            <div>
+                <label for="p_qty">Số lượng:</label>
+                <input type="number" id="p_qty"
+                       onchange="fn_change_qty();"
+                       onkeyup="fn_change_qty();">
+                <span id="err_p_qty">(*)</span>
+            </div>
+
+        
+            <div>
+                <label for="p_desc">Mô tả:</label><br>
+                <textarea id="p_desc" rows="3" cols="30"
+                          onchange="fn_change_desc();"
+                          onkeyup="fn_change_desc();"></textarea>
+                <span id="err_p_desc">(*)</span>
+            </div>
+
+            <div>
+                <label for="p_image">Ảnh sản phẩm:</label>
+                <input type="file" id="p_image" onchange="fn_change_image();">
+                <span id="err_p_image">(*)</span>
+            </div>
+
+        
+            <input type="submit" value="Thêm sản phẩm" onclick="return fn_submit();">
+        </form>
+    </div>
+
+    <script>
+        // Kiểm tra tên sản phẩm 
+        const fn_change_name = () => {
+            let name = document.getElementById('p_name').value.trim();
+            let err = document.getElementById('err_p_name');
+            if (name === "") {
+                err.innerText = "Tên sản phẩm không được để trống";
+                err.style.color = "red";
+                return false;
+            } else {
+                err.innerHTML = "<span style='color:green'>OK</span>";
+                return true;
+            }
+        }
+
+        //  Kiểm tra giá 
+        const fn_change_price = () => {
+            let price = document.getElementById('p_price').value.trim();
+            let err = document.getElementById('err_p_price');
+            if (price === "") {
+                err.innerText = "Chưa nhập giá sản phẩm";
+                err.style.color = "red";
+                return false;
+            } else if (isNaN(price) || price <= 0) {
+                err.innerText = "Giá phải là số dương";
+                err.style.color = "red";
+                return false;
+            } else {
+                err.innerHTML = "<span style='color:green'>OK</span>";
+                return true;
+            }
+        }
+
+        //  Kiểm tra số lượng 
+        const fn_change_qty = () => {
+            let qty = document.getElementById('p_qty').value.trim();
+            let err = document.getElementById('err_p_qty');
+            if (qty === "") {
+                err.innerText = "Chưa nhập số lượng";
+                err.style.color = "red";
+                return false;
+            } else if (isNaN(qty) || qty <= 0) {
+                err.innerText = "Số lượng phải là số > 0";
+                err.style.color = "red";
+                return false;
+            } else {
+                err.innerHTML = "<span style='color:green'>OK</span>";
+                return true;
+            }
+        }
+
+        //  Kiểm tra mô tả 
+        const fn_change_desc = () => {
+            let desc = document.getElementById('p_desc').value.trim();
+            let err = document.getElementById('err_p_desc');
+            if (desc === "") {
+                err.innerText = "Chưa nhập mô tả sản phẩm";
+                err.style.color = "red";
+                return false;
+            } else {
+                err.innerHTML = "<span style='color:green'>OK</span>";
+                return true;
+            }
+        }
+
+        //  Kiểm tra ảnh sản phẩm 
+        const fn_change_image = () => {
+            let file = document.getElementById('p_image').value.trim();
+            let err = document.getElementById('err_p_image');
+            if (file === "") {
+                err.innerText = "Chưa chọn ảnh sản phẩm";
+                err.style.color = "red";
+                return false;
+            } else {
+                err.innerHTML = "<span style='color:green'>OK</span>";
+                return true;
+            }
+        }
+
+        //  Khi bấm "Thêm sản phẩm" 
+        const fn_submit = () => {
+            if (fn_change_name() && fn_change_price() && fn_change_qty() && fn_change_desc() && fn_change_image()) {
+                alert("Thêm sản phẩm thành công!");
+                return true;
+            } else {
+                alert("Vui lòng kiểm tra lại thông tin!");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

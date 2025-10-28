@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="zone1">
+        <h1>Cú pháp  tương tác với DOM</h1>
+        <hr/>
+        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laboriosam officiis praesentium, commodi, ab quas laborum natus velit odit ipsum quia quasi inventore? Modi ullam consectetur laborum, accusantium dolor quisquam.</p>
+        <div>
+            <h2 class="title">Tương tác thông qua thuộc tính class</h2>
+        </div>
+        <div>
+            <h2 class="title">Forms</h2>
+            User Name:
+            <input type="text" name="username" id="u_name" value="Thu Huyền">
+            <span id="u_value"></span>
+            <p>Nội dung 1</p>
+        </div>
+        <div>
+            <h2 class="title">là lá la<span>Thu Huyền</span></h2>
+        </div>
+    </div>
+    <script>
+        //tương tác thông qua thuộc tính id của phần tử
+        var element = document.getElementById('zone1');
+        console.log(element);
+
+        var val = document.getElementById('u_name').values;
+        console.log("u:",val);
+
+        //tương tác với tên thẻ
+        var element_1 = document.getElementsByTagName('h1');
+        console.log("H1",element_1);
+        console.log("Nội dung:",element_1.innerText);
+        console.log("Nội dung:",element_1[0].innerText);
+
+        var element_p = document.getElementsByTagName('p');
+        console.log(element_p);
+
+        for (let i = 0; i < element.length; i++) {
+            const element = element_p[i].innerText;
+            
+        }
+
+        //tương tác thông qua thuộc tính class
+        var element_titles = document.getElementsByClassName('title');
+        //$('title')
+        console.log(element_title);
+        // lấy nội dung 
+        Array.from(element_titles).forEach(element => {
+            console.log(element.textContent);
+            console.log(element.innerText);
+             console.log(element.innerHTML);
+        });
+
+        //tương tác thông qua css selector
+
+        element_h2s = document.querySelectorAll('zone1 h2');
+        console.log("H2 trong zone1");
+        Array.from(element_h2s).forEach(e => {
+            console.log(e.textContent);
+            
+        });
+        element_inputTexts = document.querySelectorAll('input[type ="text"]')
+    </script>
+</body>
+</html>
