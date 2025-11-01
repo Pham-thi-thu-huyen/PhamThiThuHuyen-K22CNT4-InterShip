@@ -1,0 +1,30 @@
+#Làm việc với thư viện jquery
+1.Nhúng jquery vào html
+- Tải về trang chủ : jquery.com,..
+    <script src="js/jquery.min.js"></script>
+-Nhúng trực tiếp từ cloud
+    <script src:"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+2.Cú pháp 
+    $(selector).action({
+        statement;
+    })
+    *selector:
+    - Tên thẻ html:h1,p,div,..
+    - Tên class: test; .box,..
+    - Tên id: #test,#zone1,..
+    - Giá trị thuộc tính : input[type='text']
+    - Cú pháp css selector: div>p, #zone1 p;
+
+    *action: Các hoạt động trên selector
+    click, hide, show, hover, mouseover, blur, scroll, resize,..
+
+    Ví dụ: 
+    $('buttion').click({
+        alert('Bạn vừa click);
+    })
+
+    $('h1').hide();
+
+3. Các sự kiện thông dụng
+4. Các hiệu ứng

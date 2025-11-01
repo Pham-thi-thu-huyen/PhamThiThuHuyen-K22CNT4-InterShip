@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài thực hành 2</title>
+
+    <style>
+        button{
+            border: none;
+            width: 5rem;
+            padding: .25rem 0;
+        }
+        #zone1{
+            margin: 1rem;
+            border: 1px solid green;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="zone1">
+        <h1> Chọn màu chữ</h1>
+        <div class="button">
+            <button data-value="red">Đỏ</button>
+            <button data-value="blue">Xanh</button>
+            <button data-value="yellow">Vàng</button>
+            <button data-value="cyan">Ghi</button>
+            <button data-value="#513653">Tím</button>
+        </div>
+        <p>Lập trình giao diện fontend</p>
+        <button>Submit</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.button > button').each(function(){
+                let mau = $(this).attr('data-value');
+                console.log(mau);
+               $(this).css({
+                'color':mau,
+                'border':'1px solid'+mau
+               }).click(function(){
+                $('p').css('background', mau)
+            });
+
+            })
+            //click
+        // $('.button > button').click(function(){
+        //     let mau = $(this).attr('data-value');
+
+        //     //tô màu cho nội dung thẻ p
+        //     $('p').css('background', mau).css('color','#fff');
+        // })
+        })
+        
+    </script>
+
+</body>
+</html>

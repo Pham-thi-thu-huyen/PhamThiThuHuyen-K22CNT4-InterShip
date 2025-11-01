@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main{
+            width: 80%;
+            margin: 1rem auto;
+
+        }
+        .img-big{
+            width: 100%;
+            height: 300px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            transform: all 3s ease;
+        }
+        .list-img{
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 5px;
+        }
+        .list-img .img{
+            margin-top: 5px;
+            width:100%;
+            transform: all 3s ease;
+        }
+        .list-img .img:hover{
+            border: 5px solid red;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="img-big">
+            <img src="img/img2.jpg" alt="">
+        </div>
+        <div class="list-img">
+            <div class="img">
+                <img src="img/img3.jpg" alt="">
+            </div>
+            <div class="img">
+                <img src="img/img4.jpg" alt="">
+            </div>
+          <div class="img">
+              <img src="img/img5.png" alt="">
+          </div>
+            <div class="img">
+                <img src="img/img6.jpg" alt="">
+            </div>
+          
+            
+        </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.list-img img').click(function(){
+                let src = $(this).attr('src');
+                //phóng to thu nhỏ
+                $('.img-big img')
+                .fadeOut(200, function){
+                    $(this).attr('src', src).fadeIn(300);
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>
